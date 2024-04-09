@@ -32,6 +32,7 @@ resource "aws_instance" "myec2vm" {
 
   instance_type = var.instance_type #instance type
   user_data = file("${path.module}/install.sh")
+  #vpc_security_group
  vpc_security_group_ids =   [ aws_security_group.ssh.id,aws_security_group.web.id]
   tags = {
     "Name" = "Ec2 demo-1"
