@@ -26,11 +26,12 @@ resource "aws_instance" "myec2vm" {
   ##we need to lable the information
   ###inside the resource block we need to define argument in 
   ##key value format
-  ami = data.aws_ami.amznlinux2.id 
+  ami = data.aws_ami.amznlinux2.id
   ###i have ami id as fixed
   ##every region has it own ami id. 
 
   instance_type = var.instance_type #instance type
+  user_data = file("${path.module}/install.sh")
   tags = {
     "Name" = "Ec2 demo-1"
   }
