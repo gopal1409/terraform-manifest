@@ -14,7 +14,7 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "us-east-1"
+  region = var.region
 }
 
 
@@ -26,8 +26,11 @@ resource "aws_instance" "myec2vm" {
   ##we need to lable the information
   ###inside the resource block we need to define argument in 
   ##key value format
-  ami           = "ami-080e1f13689e07408"
-  instance_type = "t3.micro"
+  ami = data.aws_ami.amznlinux2.id 
+  ###i have ami id as fixed
+  ##every region has it own ami id. 
+
+  instance_type = var.instance_type #instance type
   tags = {
     "Name" = "Ec2 demo-1"
   }
