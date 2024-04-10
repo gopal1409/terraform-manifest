@@ -2,7 +2,7 @@
 variable "region" {
   description = "region in which aws resource need to be created"
   type        = string #numerics tuples map
-   default = "us-east-1"
+  default     = "us-east-1"
 }
 
 variable "instance_type" {

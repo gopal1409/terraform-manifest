@@ -1,7 +1,7 @@
 data "aws_ami" "example" {
   #executable_users = ["self"]
-  most_recent      = true
-  owners           = ["amazon"]
+  most_recent = true
+  owners      = ["amazon"]
 
   filter {
     name   = "name"
@@ -17,7 +17,7 @@ data "aws_ami" "example" {
     name   = "virtualization-type"
     values = ["hvm"]
   }
-   filter {
+  filter {
     name   = "architecture"
     values = ["x86_64"]
   }
