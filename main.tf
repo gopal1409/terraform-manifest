@@ -18,12 +18,7 @@ provider "aws" {
 }
 
 
-data "aws_availability_zones" "myaz" {
-  filter {
-    name   = "opt-in-status"
-    values = ["opt-in-not-required"]
-  }
-}
+
 ##this will give me a list of data center
 #{az1,az2,az3}
 
@@ -34,7 +29,7 @@ resource "aws_instance" "myec2vm" {
   vpc_security_group_ids = [aws_security_group.webserver.id]
   ##suppose your instance are identitacl we will use count. 
   ##if in your instance you need some distinct value we cannot use count
-  for_each = toset(data.aws_availability_zones.myaz.names)
+  for_each = toset(keys({for az, details in data.aws_ec2_instance_type_offerings.my_instace_type: az => details.instance_types if(details.instance_types) !=0}))
   ##based on region this for loop will fin all the az but once it got the az it need to list it in to do the listing of the value we use toset 
   availability_zone = each.key
   tags = {
