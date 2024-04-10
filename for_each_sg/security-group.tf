@@ -72,7 +72,7 @@ resource "aws_security_group" "webserver" {
     }
   }
   dynamic "egress" {
-    for_each = local.outbound_ports
+   for_each = local.outbound_ports
     content {
       from_port        = egress.value
       to_port          = egress.value
