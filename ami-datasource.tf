@@ -1,6 +1,8 @@
-data "aws_ami" "amznlinux2" {
-  most_recent = true
-  owners      = ["amazon"]
+data "aws_ami" "example" {
+  #executable_users = ["self"]
+  most_recent      = true
+  owners           = ["amazon"]
+
   filter {
     name   = "name"
     values = ["amzn2-ami-hvm-*-gp2"]
@@ -10,14 +12,12 @@ data "aws_ami" "amznlinux2" {
     name   = "root-device-type"
     values = ["ebs"]
   }
-  filter {
 
+  filter {
     name   = "virtualization-type"
     values = ["hvm"]
   }
-
-  filter {
-
+   filter {
     name   = "architecture"
     values = ["x86_64"]
   }
