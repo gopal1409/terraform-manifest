@@ -41,3 +41,15 @@ resource "aws_route_table_association" "this-rt-assoc" {
    route_table_id = aws_route_table.this-rt.id 
 }
 
+###lets add the internet gw
+resource "aws_internet_gateway" "this-igw" {
+  vpc_id = aws_vpc.this.id 
+}
+
+##attach this ig to the route table 
+resource "aws_route" "internet_route" {
+    #any where in the world
+  destination_cidr_block = "0.0.0.0/0"
+  route_table_id = aws_route_table.this-rt.id 
+  gateway_id = aws_internet_gateway.this-igw.id 
+}
