@@ -1,4 +1,5 @@
-data "aws_ami" "example" {
+##we will define the ami type
+data "aws_ami" "amzlinux2" {
   #executable_users = ["self"]
   most_recent = true
   owners      = ["amazon"]
