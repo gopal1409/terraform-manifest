@@ -4,9 +4,10 @@ locals {
 }
 
 resource "aws_security_group" "webserver" {
+  depends_on = [ aws_vpc.this ]
   name        = "webserver"
   description = "security group belong to web servers"
-
+   vpc_id = aws_vpc.this.id
   dynamic "ingress" {
     for_each = local.inbound_port
     content {
