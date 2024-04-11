@@ -10,6 +10,7 @@ variable "cidr" {
 variable "subnet_cidr_private" {
   type    = list(any)
   default = ["10.20.20.0/28", "10.20.20.16/28", "10.20.20.32/28"]
+  #convert this into numeric valu as 3
 }
 
 variable "availability_zone" {

@@ -5,8 +5,11 @@ locals {
 
 resource "aws_security_group" "webserver" {
   depends_on = [ aws_vpc.this ]
+##depends on once the vpc get created then only execute the aws_security_group
+  ###it is an pre define value in terraform it is ensuring that this block will not exe3cute till the 
   name        = "webserver"
   description = "security group belong to web servers"
+  #when we create sg i need to define the custom vpc id. it will go to default vpc
    vpc_id = aws_vpc.this.id
   dynamic "ingress" {
     for_each = local.inbound_port
@@ -28,5 +31,8 @@ resource "aws_security_group" "webserver" {
       cidr_blocks      = ["0.0.0.0/0"]
       ipv6_cidr_blocks = ["::/0"]
     }
+  }
+  tags = {
+    Name = "web-sg"
   }
 }
