@@ -17,7 +17,7 @@ resource "aws_route_table_association" "this-rt-assoc" {
   ###using this length function i found out what subnet i have
   count = 2
   #i need to do the iteration one by one
-  subnet_id = aws_subnet.public_subnewt[count.index].id 
+  subnet_id = aws_subnet.public_subnet[count.index].id 
   ###finally associate with all the rtb
   route_table_id = aws_route_table.public_route_tables.id  
 }
