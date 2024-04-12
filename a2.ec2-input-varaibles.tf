@@ -1,5 +1,5 @@
-variable "instance_type" {
-  description = "ec2 instance type"
-  type        = string
-  default     = "t2.micro"
-}
+/*variable "instance_type" {
+  description = "change the instance type from here"
+  type = string
+  default = "t2.micro"
+}*/
