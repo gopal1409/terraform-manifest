@@ -15,3 +15,12 @@ resource "aws_lb_target_group" "front-lb" {
     unhealthy_threshold = 2
   }
 }
+
+###attach all the instance behind the target group
+resource "aws_alb_target_group_attachment" "attach-app-servers" {
+  ##count to iterate the number of resource
+  count = length(aws_instance.ec2demo)
+  target_group_arn = aws_lb_target_group.front-lb.arn
+  target_id = element(aws_instance.ec2demo.*.id,count.index)
+  port = 80 
+}
