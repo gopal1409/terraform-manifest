@@ -1,9 +1,6 @@
 #! /bin/bash
 sudo yum update -y
-sudo amazon-linux-extras install epel -y
-sudo yum update -y
-sudo yum install wget -y
-sudo yum install nginx -y
-sudo yum install git -y
-sudo service nginx start
-sudo systemctl restart nginx
+sudo yum install -y httpd 
+sudo systemctl enable httpd
+sudo systemctl start httpd 
+sudo sudo echo "Welcome to besimple - WebVM App - VM Hostname: $(hostname)" | sudo tee /var/www/html/index.html
