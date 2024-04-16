@@ -1,8 +1,8 @@
 ##this is the launch template which will be used to create instance
 resource "aws_launch_template" "launch_template" {
-  name = "${var.environment}-launc-template"
-  image_id = data.aws_ami.amzlinux2.id 
-
+  name                                 = "${var.environment}-launc-template"
+  image_id                             = data.aws_ami.amzlinux2.id
+  key_name                             = "terraform"
   instance_initiated_shutdown_behavior = "terminate"
 
   instance_market_options {
@@ -18,7 +18,7 @@ resource "aws_launch_template" "launch_template" {
     security_groups = [aws_security_group.asg_security_group.id]
   }
 
-  
+
 
   tag_specifications {
     resource_type = "instance"
