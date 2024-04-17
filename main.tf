@@ -38,7 +38,7 @@ resource "aws_instance" "myec2vm" {
   ##if in your instance you need some distinct value we cannot use count
   count = 2
   tags = {
-    "Name" = "Server-${count.index}"
+    "Name" = "${terraform.workspace}-${count.index}"
   }
 }
 
