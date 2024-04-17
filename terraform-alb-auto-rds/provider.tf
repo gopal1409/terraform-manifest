@@ -8,16 +8,10 @@ terraform {
       source = "hashicorp/null"
       #version = "~> 3.0.0"
     }
-    backend "s3" {
-    #bucket = "mytfstate-gopal"
-    key = "terraform.tfstate"
-    region = "us-east-1"
-    encrypt = true 
-    #dynamodb_table = "gopal-tfstate"
     
-  }
 
   }
+  
 }
 
 # Configure the AWS Provider

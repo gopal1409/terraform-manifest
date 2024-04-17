@@ -11,11 +11,11 @@ terraform {
     }
   }
   backend "s3" {
-    #bucket = "mytfstate-gopal"
+    bucket = "mytfstate-gopal"
     key = "terraform.tfstate"
     region = "us-east-1"
     encrypt = true 
-    #dynamodb_table = "gopal-tfstate"
+    dynamodb_table = "gopal-tfstate"
     
   }
 }

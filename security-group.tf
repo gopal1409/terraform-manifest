@@ -57,7 +57,7 @@ locals {
 }
 
 resource "aws_security_group" "webserver" {
-  name        = "webserver-tf"
+  name        = "webserver-tf-${terraform.workspace}"
   description = "security group belong to web servers"
 
   dynamic "ingress" {
