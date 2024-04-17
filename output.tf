@@ -1,11 +1,10 @@
-
-output "instance_app_server_public_dn" {
-  description = "This is the dns of all your instance"
-  value       = aws_instance.ec2demo.*.public_dns
+##ec instance public ip 
+/*output "instance_public_ip" {
+  description = "Ec2 instance public ip"
+  value = aws_instance.myec2vm.public_ip
 }
 
-output "instance_app_server_public_ip" {
-  description = "This is the ip of all your instance"
-  value       = aws_instance.ec2demo.*.public_ip
-}
-
+output "instance_public_dns" {
+  description = "Ec2 instance public dns"
+  value = aws_instance.myec2vm.public_dns
+}*/
